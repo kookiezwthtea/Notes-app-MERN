@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 
 const port = env.PORT;
 
-mongoose.connect(env.MONGO_CONNECTION_STRING)
+mongoose.connect(env.MONGO_CONNECTION_STRING, {
+  ssl: true,
+  sslValidate: true,
+})
+
     .then(() => {
         console.log("Mongoose connected");
         app.listen(port, () => {
@@ -12,3 +16,5 @@ mongoose.connect(env.MONGO_CONNECTION_STRING)
         });
     })
     .catch(console.error);
+
+    mongoose.set('strictQuery', false);
