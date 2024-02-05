@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h4,h2{
+  color: rgb(0, 92, 177);
+  margin: 1rem 0;
+}

@@ -6,7 +6,7 @@ import * as NotesApi from "../network/notes_api"
 import { Alert, Button, Form, Modal } from 'react-bootstrap'
 import TextInputField from './form/TextInputField'
 import styleUtils from "../styles/utils.module.css"
-import { ConflictError, UnauthorizedError } from '../errors/http_errors'
+import { ConflictError } from '../errors/http_errors'
 
 interface SignUpModalProps {
     onDismiss: () => void,
@@ -86,4 +86,4 @@ const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
     )
 }
 
-export default SignUpModal
+export default SignUpModal;

@@ -36,7 +36,7 @@ const NotesPageLoggedInView = () => {
         loadNotes();
     }, [])
 
-    async function deleteNote(note: NoteModel) {
+     async function deleteNote(note: NoteModel) {
         try {
             await NotesApi.deleteNote(note._id);
             setNotes(notes.filter(existingNote => existingNote._id !== note._id));

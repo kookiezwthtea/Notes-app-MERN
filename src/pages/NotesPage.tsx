@@ -7,12 +7,11 @@ import styles from '../styles/NotesPage.module.css';
 
 interface NotesPageProps {
     loggedInUser: User | null,
-
 }
 
 const NotesPage = ({loggedInUser}: NotesPageProps) => {
   return (
-    <Container className={styles.notePage}>
+    <Container className={styles.notesPage}>
     <>
       {
         loggedInUser
