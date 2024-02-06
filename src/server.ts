@@ -7,7 +7,7 @@ const port = env.PORT;
 
 // Allow requests from a specific origin
 app.use(cors({
-  origin: 'https://notes-app-mern-lgpr.onrender.com',
+  origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
