@@ -5,7 +5,10 @@ import cors from 'cors';
 
 const port = env.PORT;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://notes-app-mern-lgpr.onrender.com',
+    optionsSuccessStatus: 200, 
+  }));
 
 mongoose.connect(env.MONGO_CONNECTION_STRING, {
   ssl: true,
