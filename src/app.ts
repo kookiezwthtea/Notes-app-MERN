@@ -9,7 +9,11 @@ import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
 
-const app = express();
+
+        const cors = require('cors');
+        const app = express();
+    
+        app.use(cors());
 
 app.use(morgan("dev"));
 
