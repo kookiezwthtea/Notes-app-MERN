@@ -5,16 +5,12 @@ import cors from 'cors';
 
 const port = env.PORT;
 
-app.use(
-    cors({
-      origin: (origin, callback) => {
-        // Allow all origins
-        callback(null, true);
-      },
-      methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      allowedHeaders: ['Content-Type'],
-    })
-  );
+// Allow requests from a specific origin
+app.use(cors({
+  origin: 'https://notes-app-mern-lgpr.onrender.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 mongoose.connect(env.MONGO_CONNECTION_STRING, {
   ssl: true,
