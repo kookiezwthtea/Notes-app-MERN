@@ -18,22 +18,21 @@ app.use(function(req, res, next) {
 });
   
 
-// Middleware for handling CORS POLICY
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow all origins
-      callback(null, true);
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-  })
-);
-
-app.get('/', (request, response) => {
-  console.log(request);
-  return response.status(234).send('My Notes');
-});
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
+  
+  app.use(cors(corsOpts));
+  
 
 mongoose.connect(env.MONGO_CONNECTION_STRING, {
   ssl: true,
