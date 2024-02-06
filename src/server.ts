@@ -11,25 +11,29 @@ const port = env.PORT;
 //     res.setHeader('Access-Control-Allow-Origin', '*');
 //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-//     res.setHeader('Access-Control-Allow-Credentials', 'true');
+//   200  res.setHeader('Access-Control-Allow-Credentials', 'true');
 //     res.sendStatus(204);
 // });
   
-
 const corsOpts = {
     origin: '*',
-  
     methods: [
       'GET',
       'POST',
     ],
-  
     allowedHeaders: [
       'Content-Type',
     ],
   };
-  
   app.use(cors(corsOpts));
+
+  app.use(function(req, res, next) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      next();
+  });
 
 
 mongoose.connect(env.MONGO_CONNECTION_STRING, {
